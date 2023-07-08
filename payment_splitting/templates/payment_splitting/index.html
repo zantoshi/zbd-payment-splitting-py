@@ -1,0 +1,107 @@
+{% extends 'payment_splitting/base.html' %}
+{% load static %}
+
+{% block title %} Success! {% endblock %}
+
+
+{% block content %}
+
+    <!-- Card Grid -->
+    <div class="container content-space-2 content-space-lg-3" id="blogSection">
+        <!-- Heading -->
+        <div class="row" style="color: #d2daea;">
+        <h2 style=" color: #d2daea;" class="display-2">Welcome to Payment Splitting</h2>
+        <p>With Lightning Address, it's easy. Just add your lightning addresses and then pay!</p>
+        
+        <form action="{% url 'confirm' %}" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <div class="row mb-4">
+                    <label for="refund_lnaddress" class="form-label text-white" required>Amount</label>
+                    <p>How much do you want to be sent in total? This will be split evenly amongst lightning addresses.</p>
+
+                    <div class="col">
+                        <div class="mb-4">
+                            <!-- Input Group -->
+                        
+                            <div class="input-group input-group-merge">
+                            <div class="input-group-prepend input-group-text" id="inputGroupMergeEmailAddOn">
+                                <i class="bi-lightning"></i>
+                            </div>
+                            <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount in sats" minimum="1000" aria-describedby="inputGroupMergeEmailAddOn" required>
+                            </div>
+                        </div>
+                        <!-- End Input Group -->
+                    </div>
+                </row>
+                <div class="row mb-4">
+                    <label for="refund_lnaddress" class="form-label text-white" required>Refund Lightning Address</label>
+                    <p>If a payment fails, we'll refund you at this address.</p>
+
+                    <div class="col">
+                        <div class="mb-4">
+                            <!-- Input Group -->
+                        
+                            <div class="input-group input-group-merge">
+                            <div class="input-group-prepend input-group-text" id="inputGroupMergeEmailAddOn">
+                                <i class="bi-lightning"></i>
+                            </div>
+                            <input type="email" class="form-control" id="refund_lnaddress" name="refund_lnaddress" placeholder="santos@zbd.gg" aria-label="andre@example.com" aria-describedby="inputGroupMergeEmailAddOn" required>
+                            </div>
+                        </div>
+                        <!-- End Input Group -->
+                    </div>
+                </row>
+                <label for="lnaddress1" class="form-label text-white" required>Pay to Lightning Address</label>
+                <div class="mb-3">
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="">
+                                <!-- Input Group -->
+                            
+                                <div class="input-group input-group-merge">
+                                <div class="input-group-prepend input-group-text" id="inputGroupMergeEmailAddOn">
+                                    <i class="bi-lightning"></i>
+                                </div>
+                                <input type="email" class="form-control" id="lnaddress1" name="lnaddress1" placeholder="andre@zbd.gg" aria-label="santos@example.com" aria-describedby="inputGroupMergeEmailAddOn">
+                                </div>
+                            </div>
+                            <!-- End Input Group -->
+                        </div>
+                        {% comment %} <div class="col">
+                            <button type="button" class="btn btn-primary btn-md">+</button>
+                        </div> {% endcomment %}
+    
+                    </div>
+                <div class="mb-3">
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="">
+                                <!-- Input Group -->
+                            
+                                <div class="input-group input-group-merge">
+                                <div class="input-group-prepend input-group-text" id="inputGroupMergeEmailAddOn">
+                                    <i class="bi-lightning"></i>
+                                </div>
+                                <input type="email" class="form-control" id="lnaddress2" name="lnaddress2" placeholder="fiatjaf@lntxbot.com" aria-label="santos@example.com" aria-describedby="inputGroupMergeEmailAddOn">
+                                </div>
+                            </div>
+                            <!-- End Input Group -->
+                        </div>
+                        {% comment %} <div class="col">
+                            <button type="button" class="btn btn-primary btn-md">+</button>
+                        </div> {% endcomment %}
+    
+                    </div>
+                <input type="submit" class="btn btn-primary btn-lg" value="Continue">
+        </form>
+
+
+        </div>
+        <!-- End Heading -->
+
+        </div>
+    </div>
+
+    <!-- End Card Grid -->
+{% endblock %}

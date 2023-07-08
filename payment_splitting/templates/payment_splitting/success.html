@@ -1,0 +1,24 @@
+{% extends 'payment_splitting/base.html' %}
+{% load static %}
+
+{% block title %} Success! {% endblock %}
+
+
+{% block content %}
+
+    <!-- Card Grid -->
+    <div class="container content-space-2 content-space-lg-3" id="blogSection">
+        <!-- Heading -->
+        <div class="row" style="color: #d2daea;">
+        <h2 style=" color: #d2daea;" class="display-2">Your payment has been split!</h2>
+        <p>Awesome job! You just split payments.</p>
+        <a href="{% url 'index' %}" class="btn btn-primary">Go back home</a>
+
+        </div>
+        <!-- End Heading -->
+
+        </div>
+    </div>
+
+    <!-- End Card Grid -->
+{% endblock %}

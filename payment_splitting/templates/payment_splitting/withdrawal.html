@@ -1,0 +1,35 @@
+{% extends 'payment_splitting/base.html' %}
+{% load static %}
+
+{% block title %} Success! {% endblock %}
+
+
+{% block content %}
+
+    <!-- Card Grid -->
+    <div class="container content-space-2 content-space-lg-3" id="blogSection">
+        <!-- Heading -->
+        <div class="row" style="color: #d2daea;">
+        <h2 style=" color: #d2daea;" class="display-2">Testing Withdrawal</h2>
+        <a href="{{withdrawal}}">
+            <div id="qrcode"></div>
+            <span hx-get="https://782f-2600-8800-4c41-2200-4bc-d780-8b60-8419.ngrok.io/withdrawal-status/?withdrawal_id={{withdrawal_id}}" hx-trigger="every 2s"></span>
+
+        </a>
+        <div class="col mt-3">
+            <a href="{{withdrawal}}" class="btn btn-primary btn-lg">Click to Withdraw</a>
+            <a href="{% url 'index' %}" class="btn btn-secondary btn-lg">Cancel</a>
+        </div>
+
+        </div>
+        <!-- End Heading -->
+
+        </div>
+    </div>
+
+    <!-- End Card Grid -->
+    <script src="{% static 'assets/js/qrcode.min.js' %}"></script>
+    <script type="text/javascript">
+        new QRCode(document.getElementById("qrcode"), "{{withdrawal}}");
+    </script>
+{% endblock %}

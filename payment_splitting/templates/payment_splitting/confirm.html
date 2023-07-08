@@ -1,0 +1,42 @@
+{% extends 'payment_splitting/base.html' %}
+{% load static %}
+
+{% block title %} Confirm your payment split {% endblock %}
+
+
+{% block content %}
+
+    <!-- Card Grid -->
+    <div class="container content-space-2 content-space-lg-3" id="blogSection">
+        
+        <!-- Heading -->
+        <div class="row" style="color: #d2daea;">
+        <h2 style=" color: #d2daea;" class="display-2">Confirm payment split</h2>
+        <p>Let's review your payment split details and if it looks good, please pay your invoice on the next step and then we'll split your payment.</p>
+        <strong>Refund Lightning Address</strong>
+        
+        <p>ϟ {{refund_lnaddress}}</p>
+
+        <strong>Pay to Lightning Addresses</strong>
+
+        <p>ϟ {{lnaddress1}}</p>
+        <p>ϟ {{lnaddress2}}</p>
+
+        <strong>Pay to Lightning Addresses</strong>
+
+        <p>ϟ {{amount}}</p>
+        <p>Per LN Address: {{amount_per_ln_address}} (before network fee)</p>
+
+        <!-- add extra details here-->
+
+        </div>
+        <!-- End Heading -->
+        <div class="col">
+            <a href="{% url 'pay' %}" class="btn btn-primary btn-lg">Continue</a>
+        </div>
+        </div>
+    </div>
+
+    <!-- End Card Grid -->
+
+{% endblock %}
